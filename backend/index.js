@@ -109,7 +109,6 @@ passport.use(
     
     },
     function (accessToken, refreshToken, profile, cb) {
-      console.log(GoogleStrategy.callbackURL);
       console.log(profile);
 
       User.findOrCreate(
