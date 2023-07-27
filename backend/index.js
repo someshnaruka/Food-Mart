@@ -104,10 +104,12 @@ passport.use(
     {
       clientID: process.env.GOOGLE_ClIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "http://localhost:8080/auth/google/callback",
+      callbackURL: `${process.env.REACT_APP_SERVER_DOMAIN}/auth/google/callback`,
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo", //used to protect from google plus depreciation now wont pull data from google plus but from userinfo
+    
     },
     function (accessToken, refreshToken, profile, cb) {
+      console.log(GoogleStrategy.callbackURL);
       console.log(profile);
 
       User.findOrCreate(
@@ -125,7 +127,6 @@ passport.use(
     }
   )
 );
-
 passport.serializeUser(function (user, cb) {
   process.nextTick(function () {
     return cb(null, user.id);
@@ -203,7 +204,7 @@ app.get("/logout", function (req, res) {
     if (err) {
       return next(err);
     }
-    // res.redirect("http://localhost:3000/");
+    res.redirect(process.env.FRONTEND);
   });
 });
 app.get("/category", (req, res) => {
