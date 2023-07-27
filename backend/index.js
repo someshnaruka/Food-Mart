@@ -36,7 +36,7 @@ app.use("/uploads",express.static("uploads"));
 app.use(
   session({
     name: "google cookie",
-    secret: "my secret key to encryption.",
+    secret: process.env.COOKIESECRET,
     resave: false,
     saveUninitialized: false, //to inplemnt login sessions,reduce storage size
     cookie: { maxAge: 24 * 60 * 60 * 1000 },
@@ -253,7 +253,7 @@ app.get("/login", (req, res) => {
   console.log(req.headers.xtoken, "session user");
   const token = req.headers.xtoken;
   if (token) {
-    const decoded = jwt.verify(token, "my secrent key");
+    const decoded = jwt.verify(token, process.env.COOKIESECRET);
     res.send({ alert: true, result: decoded });
   } else {
     res.send({ alert: false, message: "invalid token" });
