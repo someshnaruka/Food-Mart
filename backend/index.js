@@ -34,6 +34,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 const mongoose = require("mongoose");
 app.use("/uploads",express.static("uploads"));
+app.set('trust proxy', 1)
 app.use(
   session({
     name: "google cookie",
