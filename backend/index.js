@@ -20,7 +20,7 @@ const fs = require('fs');
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.FRONTEND,
     methods: ["Get", "Post", "Delete"],
     credentials: true,
   })
@@ -185,8 +185,8 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:3000/login",
-    successRedirect: "http://localhost:3000/",
+    failureRedirect: `${process.env.FRONTEND}/login`,
+    successRedirect: process.env.FRONTEND,
     failureMessage: "Error loging in try again",
   })
 );
@@ -203,7 +203,7 @@ app.get("/logout", function (req, res) {
     if (err) {
       return next(err);
     }
-    res.redirect("http://localhost:3000/");
+    // res.redirect("http://localhost:3000/");
   });
 });
 app.get("/category", (req, res) => {
