@@ -17,6 +17,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const cookieSession = require("cookie-session");
 const multer=require("multer");
 const fs = require('fs');
+const MongoStore = require('connect-mongo');
 const app = express();
 app.use(
   cors({
@@ -39,6 +40,10 @@ app.use(
     secret: process.env.COOKIESECRET,
     resave: false,
     saveUninitialized: false, //to inplemnt login sessions,reduce storage size
+    store: MongoStore.create({mongoUrl: process.env.MONGODB_URL,
+    collectionName:"sessions",
+    ttl: 14 * 24 * 60 * 60,
+    autoRemove: 'native'}),
     cookie: { maxAge: 24 * 60 * 60 * 1000 },
   })
 );
