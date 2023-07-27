@@ -203,7 +203,7 @@ app.get("/logout", function (req, res) {
     if (err) {
       return next(err);
     }
-    // res.redirect("http://localhost:3000/");
+     res.redirect(process.env.FRONTEND);
   });
 });
 app.get("/category", (req, res) => {
