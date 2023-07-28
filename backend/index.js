@@ -197,12 +197,13 @@ app.get(
   })
 );
 app.get("/auth/user", (req, res) => {
-  if (req.user) {
-    console.log(req.user);
+  console.log(req.user);
     res.send({ message: "Succefully logged in", result: req.user });
-  } else {
-    console.log("no user found");
-  }
+  // if (req.user) {
+    
+  // } else {
+  //   console.log("no user found");
+  // }
 });
 app.get("/logout", function (req, res) {
   req.logout(function (err) {

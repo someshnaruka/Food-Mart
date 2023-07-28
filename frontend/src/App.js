@@ -50,9 +50,10 @@ const [check,setcheck]=useState(true)
   },[])
   useEffect(()=>{
     axios.get(process.env.REACT_APP_SERVER_DOMAIN + "/auth/user",{withCredentials:true}).then((datares)=>{
+      console.log(datares.data,"google data");
       if(datares.data.result)
       {
-        console.log(datares.data,"google data");
+       
         dispatch(loginRedux(datares.data.result))
       }
 
