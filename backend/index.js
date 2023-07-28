@@ -43,7 +43,7 @@ app.use(
     saveUninitialized: false, //to inplemnt login sessions,reduce storage size
     store: MongoStore.create({mongoUrl: process.env.MONGODB_URL,
     collectionName:"sessions",
-    ttl: 14 * 24 * 60 * 60,
+    ttl: 1 * 24 * 60 * 60,
     autoRemove: 'native'}),
     cookie: { maxAge: 24 * 60 * 60 * 1000 },
   })
@@ -117,7 +117,7 @@ passport.use(
     function (accessToken, refreshToken, profile, cb) {
       console.log(profile);
 
-      User.findOrCreate(
+       User.findOrCreate(
         {
           googleId: profile.id,
           firstName: profile.name.givenName,
@@ -196,7 +196,7 @@ app.get(
     failureMessage: "Error loging in try again",
   })
 );
-app.get("/auth/user", (req, res) => {
+app.get("/auth/user", (req, res) => {  
   if (req.user) {
     console.log(req.user);
     res.send({ message: "Succefully logged in", result: req.user });

@@ -71,7 +71,7 @@ function handleCart(){
               </Link>
             </div>
 
-            <div className="menu-item w-1/6 flex justify-center md:gap-4 gap-2 items-center cursor-pointer" >
+            <div className="menu-item flex justify-center md:gap-4 gap-2 items-center cursor-pointer" >
               
                 <div className=" inline-flex relative m-3" onClick={handleCart}>
                   <LocalMallOutlinedIcon
