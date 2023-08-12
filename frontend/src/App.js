@@ -13,7 +13,11 @@ import NewProduct from "./components/NewProduct";
 import { useEffect, useState } from "react";
 import axios, { Axios } from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { AddcartRedux, productCheck, productRedux } from "./features/productSlice";
+import {
+  AddcartRedux,
+  productCheck,
+  productRedux,
+} from "./features/productSlice";
 import Productpage from "./components/Productpage";
 import Productdetail from "./components/Productdetail";
 import Cart from "./components/Cart";
@@ -29,47 +33,47 @@ import { decodeToken } from "react-jwt";
 function App() {
   const dispatch = useDispatch();
 
-
-
   axios.defaults.withCredentials = true;
-const [check,setcheck]=useState(true)
-  useEffect(()=>{
+  const [check, setcheck] = useState(true);
+  useEffect(() => {
     let products = [];
-    if(localStorage.getItem('FoodMartcart')){
-        products = JSON.parse(localStorage.getItem('FoodMartcart'));
-        dispatch(productCheck(check))
-    }
-    else{
-      setcheck(false)
-      dispatch(productCheck(check))
+    if (localStorage.getItem("FoodMartcart")) {
+      products = JSON.parse(localStorage.getItem("FoodMartcart"));
+      dispatch(productCheck(check));
+    } else {
+      setcheck(false);
+      dispatch(productCheck(check));
     }
     console.log(products);
-    {products.forEach((product)=>{
-      dispatch(AddcartRedux(product))
-    })}
-  },[])
-  useEffect(()=>{
-    axios.get(process.env.REACT_APP_SERVER_DOMAIN + "/auth/user",{withCredentials:true}).then((datares)=>{
-      console.log(datares.data,"google data");
-      if(datares.data.result)
-      {
-       
-        dispatch(loginRedux(datares.data.result))
-      }
-
-    }).catch((err)=>{
-      console.log(err);
-    })
-  })
+    {
+      products.forEach((product) => {
+        dispatch(AddcartRedux(product));
+      });
+    }
+  }, []);
+  useEffect(() => {
+    axios
+      .get(process.env.REACT_APP_SERVER_DOMAIN + "/auth/user", {
+        withCredentials: true,
+      })
+      .then((datares) => {
+        console.log(datares.data, "google data");
+        if (datares.data.result) {
+          dispatch(loginRedux(datares.data.result));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      const userDetail=decodeToken(token);
-          console.log(userDetail,"login data");
-          dispatch(loginRedux(userDetail))
-    }
-    else{
+      const userDetail = decodeToken(token);
+      console.log(userDetail, "login data");
+      dispatch(loginRedux(userDetail));
+    } else {
       console.log("invalid token");
     }
   }, []);

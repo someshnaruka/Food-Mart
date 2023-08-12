@@ -196,11 +196,13 @@ app.get(
     failureMessage: "Error loging in try again",
   })
 );
+
 app.get("/auth/user", (req, res) => {  
   if (req.user) {
     console.log(req.user);
     res.send({ message: "Succefully logged in", result: req.user });
-  } else {
+  }
+   else {
     console.log("no user found");
   }
 });
