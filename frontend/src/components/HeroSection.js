@@ -61,7 +61,7 @@ const Hero_Section = () => {
       <div className="hero-section bg-cover w-full ">
         {width > 800 ? (
           <div className="flex justify-evenly items-center">
-            <div className="hero-content-card m-2  md:m-8 flex flex-col-reverse md:flex-row items-center justify-between overflow-hidden bg-hero_Blue border border-1 shadow drop-shadow-xl rounded-lg w-1/2">
+            <div className="hero-content-card m-2 w md:m-8 flex flex-col-reverse md:flex-row items-center justify-between overflow-hidden bg-hero_Blue border border-1 shadow drop-shadow-xl rounded-lg w-1/2">
               <div className="content m-2 md:m-12 flex flex-col w-3/4 md:w-1/2 justify-between">
                 <h2 className="text-md md:text-3xl mb-2 text-yellow-500">
                   100% Natural

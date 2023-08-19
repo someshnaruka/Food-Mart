@@ -102,11 +102,11 @@ const Register = (props) => {
     <div className="flex justify-center">
       <div className="border-1 shadow-lg  bg-hero_Blue  w-full md:w-1/3 m-4 ">
         <form onSubmit={handleSubmit} className="flex flex-col justify-between items-start p-2 md:p-4 ">
-          <div className="w-24 h-24 overflow-hidden rounded-full drop-shadow-md shadow-md m-auto">
+          <div className="w-24 h-24  overflow-hidden rounded-full drop-shadow-md shadow-md m-auto">
             <img
               src={user.profilePic ? user.profilePic : userImg}
               alt="Profile Pic"
-              className="w-full h-full"
+              className="w-full h-full "
             ></img>
             <label htmlFor="profileImg">
               <div className="absolute bottom-0 h-1/4 right-1 bg-slate-500 bg-opacity-50 w-full text-center cursor-pointer">
