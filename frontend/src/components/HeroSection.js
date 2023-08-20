@@ -30,7 +30,7 @@ const Hero_Section = () => {
 
   return (
     <div>
-      <div className="search-panel w-full flex mt-5 justify-center items-center bg-yellow-300">
+      <div className="w-full flex mt-5 justify-center items-center bg-yellow-300">
         <input
           className="search-bar text-xs md:text-md md:p-3 p-2  md:m-5 mt-5 ml-5 mb-5  w-3/4 md:w-1/3 placeholder-black border-2 border-white outline-0 bg-yellow-300 rounded-lg"
           type="text"

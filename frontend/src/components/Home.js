@@ -66,10 +66,10 @@ const [isLoading,setLoading]=useState(true);
   visible={true}
 /></div>:
     
-    <div className="flex flex-col justify-between items-center w-full ">
+    <div className="flex flex-col  ">
     <HeroSection></HeroSection>
 
-<div className="my-10 w-[95%] mx-6">
+<div className="my-10  mx-6">
      <h1 className="text-md md:text-2xl">Shop By Category</h1>
      <hr className="border-1 border-black border-solid"></hr>
      <div className="category-box flex items-center justify-between my-5 w-full flex-wrap">
@@ -88,7 +88,7 @@ const [isLoading,setLoading]=useState(true);
 
   
 
-   <div className="my-5 w-[95%] ">
+   <div className="my-5 w-[95%] mx-6 ">
      <h1 className="text-md md:text-2xl">Products</h1>
      <hr className="border-1 border-black border-solid"></hr>
      <div className="my-5 flex justify-end gap-2 items-center">
