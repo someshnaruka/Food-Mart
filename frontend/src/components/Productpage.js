@@ -15,9 +15,7 @@ const Productpage = (props) => {
       return data.category === title;
     },[]);
 
-  console.log("====================================");
-  console.log(filterdata);
-  console.log("====================================");
+
 
   const loadingArray = new Array(6).fill(null);
 

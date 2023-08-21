@@ -13,7 +13,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     loginRedux: (state, action) => {
-     console.log(action.payload,"payload login");
+  
       //   state.user = action.payload.data;
       state._id = action.payload._id;
       state.firstName = action.payload.firstName;

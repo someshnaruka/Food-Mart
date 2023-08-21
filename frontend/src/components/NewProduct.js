@@ -33,10 +33,7 @@ setshowImage(picture);
     setfile(data);
   }
 
-  console.log("====================================");
-  console.log(categoryData, "data to be uploaded");
-  console.log("====================================");
-  console.log(showImage,"image url");
+
   function handleSubmit(event) {
     event.preventDefault();
     var formData = new FormData();
@@ -48,7 +45,7 @@ setshowImage(picture);
     formData.append("description", categoryData.description);
  
     formData.append("image", file);
-    console.log(formData, "form data");
+
     const { title, category, price, quantity, description,rating } = categoryData;
     const config = {
       Headers: {
@@ -59,7 +56,7 @@ setshowImage(picture);
       axios
         .post(process.env.REACT_APP_SERVER_DOMAIN + "/newProduct", formData)
         .then((response) => {
-          console.log(response.data);
+       
           toast(response.data.message);
           if (response.data.alert) {
             setcategoryData({

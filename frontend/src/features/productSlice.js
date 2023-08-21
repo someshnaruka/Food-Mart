@@ -13,11 +13,11 @@ export const productSlice = createSlice({
   initialState,
   reducers: {
     productCheck:(state,action)=>{
-console.log(action.payload,"prouct check");
+
 state.productCheck=action.payload
     },
     productRedux: (state, action) => {
-      console.log(action, "payload");
+    
       state.productList = [...action.payload];
     },
     AddcartRedux: (state, action) => {
@@ -27,7 +27,7 @@ state.productCheck=action.payload
       if (check) {
         toast("Product already in cart");
       } else {
-        console.log(action.payload, "product detail");
+      
         const price = action.payload.price;
         const qty = action.payload.unit;
         const totalValue = price * qty;
@@ -39,7 +39,7 @@ state.productCheck=action.payload
       localStorage.setItem("FoodMartcart", JSON.stringify(state.cartList));
     },
     DeletecartRedux: (state, action) => {
-      console.log(action.payload, "delete id");
+   
 
       const index = state.cartList.findIndex(
         (item) => item.id === action.payload

@@ -11,7 +11,7 @@ const Searchpage=(props)=>{
     const dispatch=useDispatch();
   const navigate = useNavigate();
     const cartItemNumber=useSelector((state)=>state.product.productList)
-    console.log(cartItemNumber,"search page cart product list");
+  
 
 
     const {searchText}=useParams();
@@ -24,9 +24,7 @@ const Searchpage=(props)=>{
             )
         });
 
-    console.log('====================================');
-    console.log(filterdata,"search item result");
-    console.log('====================================');
+  
     
     function handleclick(productUnit) {
         navigate("/productdetail/" + productUnit.id+"/"+productUnit.unit);

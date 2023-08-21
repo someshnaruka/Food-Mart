@@ -12,7 +12,7 @@ const Login = (props) => {
   axios.defaults.withCredentials = true;
   const navigate = useNavigate();
   const userData=useSelector(state=>state)
-  console.log(userData,"data from redux store");
+ 
   
   const dispatch=useDispatch();
 
@@ -52,12 +52,12 @@ const Login = (props) => {
 
       return await response.json().then((datares) => {
         toast(datares.message);
-        console.log(datares,"data from response");
+
 
         if (datares.alert) {
           localStorage.setItem('token',datares.result)
           const userDetail=decodeToken(datares.result);
-          console.log(userDetail,"login data");
+      
           dispatch(loginRedux(userDetail))
           setTimeout(() => {
             navigate("/");

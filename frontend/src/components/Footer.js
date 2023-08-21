@@ -12,63 +12,63 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 const Footer = (props) => {
   return (
     
-      <div className="footer bg-hero_Blue flex flex-col  w-full justify-between items-end  overflow-hidden  mt-auto pt-10 ">
-        <div className="flex  items-start  justify-evenly ">
-          <div className="flex justify-center item-start w-1/6 ">
-            <p className="pr-2">
+      <div className="footer bg-hero_Blue flex flex-col  w-full justify-between items-end  overflow-hidden  mt-auto pt-10 px-auto">
+        <div className="flex  items-start  justify-evenly flex-wrap ">
+          <div className="flex justify-center item-start w-1/6 md:flex-row flex-col">
+            <p className="pr-2 text-center">
               <DeliveryDiningIcon sx={{ fontSize: 25 }}></DeliveryDiningIcon>
             </p>
 
             <div className="flex flex-col w-auto">
-              <p className="font-semibold text-xs">Free Delivery</p>
+              <p className="font-semibold text-xs text-center md:text-left">Free Delivery</p>
               <p className="text-xs hidden md:block font-light">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
               </p>
             </div>
           </div>
-          <div className="flex justify-center item-center w-1/6">
-            <p className="pr-2">
+          <div className="flex justify-center item-center w-1/6 md:flex-row flex-col">
+            <p className="pr-2 text-center">
               <GppGoodIcon sx={{ fontSize: 25 }}></GppGoodIcon>
             </p>
 
             <div className="flex flex-col">
-              <p className="font-semibold text-xs">100% Secure Payment</p>
+              <p className="font-semibold text-xs text-center md:text-left">100% Secure Payment</p>
               <p className="w-full text-xs hidden md:block font-light">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
               </p>
             </div>
           </div>
-          <div className="flex justify-center item-start w-1/6">
-            <p className="pr-2">
+          <div className="flex justify-center item-start w-1/6 md:flex-row flex-col">
+            <p className="pr-2 text-center">
               <VerifiedIcon sx={{ fontSize: 25 }}></VerifiedIcon>
             </p>
 
             <div className="flex flex-col">
-              <p className="font-semibold text-xs">Quality Assurance</p>
+              <p className="font-semibold text-xs text-center md:text-left">Quality Assurance</p>
               <p className="w-full text-xs hidden md:block font-light">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
               </p>
             </div>
           </div>
-          <div className="flex justify-center item-start w-1/6">
-            <p className="pr-2">
+          <div className="flex justify-center item-start w-1/6 md:flex-row flex-col">
+            <p className="pr-2 text-center">
               <CurrencyRupeeIcon sx={{ fontSize: 25 }}></CurrencyRupeeIcon>
             </p>
 
             <div className="flex flex-col">
-              <p className="font-semibold text-xs">Guaranteed Savings</p>
+              <p className="font-semibold text-xs text-center md:text-left">Guaranteed Savings</p>
               <p className="w-full text-xs hidden md:block font-light">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
               </p>
             </div>
           </div>
-          <div className="flex justify-center item-start w-1/6">
-            <p className="pr-2">
+          <div className="flex justify-center item-start w-1/6 md:flex-row flex-col">
+            <p className="pr-2 text-center">
               <LocalOfferIcon sx={{ fontSize: 25 }}></LocalOfferIcon>
             </p>
 
             <div className="flex flex-col">
-              <p className="font-semibold text-xs">Daily Offers</p>
+              <p className="font-semibold text-xs text-center md:text-left">Daily Offers</p>
               <p className="w-full text-xs hidden md:block font-light">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
               </p>
@@ -116,10 +116,10 @@ const Footer = (props) => {
               
               
             </div>
-            <div className="flex flex-col justify-between items-center p-2 m-5 md:m-10 md:w-1/4 w-full">
+            <div className="flex flex-col justify-between items-center md:m-10 md:w-1/4 ">
               <h2 className="font-semibold">Our Newsetter</h2>
-              <p className="text-slate-400 text-md">Subscribe to our newsletter to get updates about our grand offers.</p>
-              <div className="flex justify-center items-center m-10">
+              <p className="text-slate-400 text-md text-center md:text-left">Subscribe to our newsletter to get updates about our grand offers.</p>
+              <div className="flex md:justify-start justify-start items-center pt-5">
                 <input type="text" placeholder="Enter your email address" className="p-2 bg-slate-200"></input>
                 <button className="bg-black p-2 text-white">Send</button>
               </div>

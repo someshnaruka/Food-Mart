@@ -17,7 +17,7 @@ const Hero_Section = () => {
     setWidth(window.innerWidth);
   }, []);
 
-  console.log(width, "screen");
+ 
   function handleClick() {
     navigate("/search/" + searchText);
   }

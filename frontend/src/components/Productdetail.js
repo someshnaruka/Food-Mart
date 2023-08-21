@@ -14,9 +14,7 @@ const Productdetail = (props) => {
   const navigate=useNavigate();
   const dispatch = useDispatch();
   const productData = useSelector((state) => state.product.productList);
-  console.log("====================================");
-  console.log(productData);
-  console.log("====================================");
+
   const [unitCounter, setunitCounter] = useState(unit);
 
   function increaseUnit(event) {
@@ -52,7 +50,7 @@ const Productdetail = (props) => {
       dispatch(AddcartRedux(productdetail));
       
     } else {
-      console.log("hello");
+      
       toast("Minimum Quntity 1");
     }
   }
@@ -73,14 +71,11 @@ const Productdetail = (props) => {
       
       
     } else {
-      console.log("hello");
+     
       toast("Minimum Quntity 1");
     }
   }
-  console.log("====================================");
-  console.log(unitCounter);
-  console.log("====================================");
-  console.log(filterdata, "specific product");
+ 
 
   return (
     <div>

@@ -13,8 +13,7 @@ const Cart = (props) => {
   const dispatch = useDispatch();
   const productData = useSelector((state) => state.product.cartList);
   const user = useSelector((state) => state.user);
-  console.log(user,"cart user info");
-  console.log(productData, "cart data");
+ 
 
   const totalSum = productData.reduce(
     (acc, curr) => acc + parseInt(curr.total),
@@ -25,7 +24,7 @@ const Cart = (props) => {
     0
   );
   function handleDelete(id) {
-    console.log(id, "delete id");
+   
     dispatch(DeletecartRedux(id));
   }
   function handleImgClick(product) {
@@ -47,7 +46,7 @@ const Cart = (props) => {
           }
         )
         .then((response) => {
-          console.log(response);
+         
           if (response.data.url) {
             toast("Redirecting to Payment Gateway")
             window.location.href = response.data.url;

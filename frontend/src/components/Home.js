@@ -16,7 +16,7 @@ const Home = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const productData = useSelector((state) => state.product.productList);
-  console.log(productData,"Product Data");
+  
 
 const [isLoading,setLoading]=useState(true);
   const [categoryData, setCategoryData] = useState([]);
@@ -28,9 +28,9 @@ const [isLoading,setLoading]=useState(true);
         setLoading(false)
       })
       .catch((err) => {
-        console.log("====================================");
+      
         console.log(err);
-        console.log("====================================");
+       
       });
   }, []);
 

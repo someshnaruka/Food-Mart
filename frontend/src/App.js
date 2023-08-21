@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,7 +12,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import toast, { Toaster } from "react-hot-toast";
 import NewProduct from "./components/NewProduct";
-import { useEffect, useState } from "react";
+
 import axios, { Axios } from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -18,18 +20,22 @@ import {
   productCheck,
   productRedux,
 } from "./features/productSlice";
-import Productpage from "./components/Productpage";
+
+// import Productpage from "./components/Productpage";
 import Productdetail from "./components/Productdetail";
 import Cart from "./components/Cart";
 import Searchpage from "./components/Searchpage";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
+
+// import Home from "./components/Home";
 import Layout from "./components/Layout";
 import Success from "./components/Success";
 import Cancel from "./components/Cancel";
 import { loginRedux } from "./features/user/userSlice";
 import { decodeToken } from "react-jwt";
-
+const LazyProductdetail=React.lazy(()=>import ("./components/Productdetail"))
+const LazyProductpage=React.lazy(()=>import ("./components/Productpage"))
+const LazyHome=React.lazy(()=>import ("./components/Home"));
 function App() {
   const dispatch = useDispatch();
 
@@ -44,7 +50,7 @@ function App() {
       setcheck(false);
       dispatch(productCheck(check));
     }
-    console.log(products);
+  
     {
       products.forEach((product) => {
         dispatch(AddcartRedux(product));
@@ -57,7 +63,7 @@ function App() {
         withCredentials: true,
       })
       .then((datares) => {
-        console.log(datares.data, "google data");
+        
         if (datares.data.result) {
           dispatch(loginRedux(datares.data.result));
         }
@@ -71,7 +77,7 @@ function App() {
     const token = localStorage.getItem("token");
     if (token) {
       const userDetail = decodeToken(token);
-      console.log(userDetail, "login data");
+   
       dispatch(loginRedux(userDetail));
     } else {
       console.log("invalid token");
@@ -82,7 +88,7 @@ function App() {
     axios
       .get(process.env.REACT_APP_SERVER_DOMAIN + "/newProduct")
       .then((data) => {
-        console.log(data.data.dataRes, "category data");
+       
 
         dispatch(productRedux(data.data.dataRes));
       })
@@ -91,12 +97,12 @@ function App() {
       });
   }, []);
   return (
-    <div className="main">
+    <div className="main overflow-x-hidden">
       <Toaster></Toaster>
       <Router>
         <Header></Header>
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/" element={<React.Suspense><LazyHome /></React.Suspense>}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
           <Route
@@ -107,12 +113,12 @@ function App() {
           <Route
             exact
             path="/productpage/:title"
-            element={<Productpage></Productpage>}
+            element={<React.Suspense><LazyProductpage></LazyProductpage></React.Suspense>}
           ></Route>
           <Route
             exact
             path="/productdetail/:id/:unit"
-            element={<Productdetail></Productdetail>}
+            element={<React.Suspense><LazyProductdetail></LazyProductdetail></React.Suspense>}
           ></Route>
           <Route exact path="/cart" element={<Cart></Cart>}></Route>
           <Route

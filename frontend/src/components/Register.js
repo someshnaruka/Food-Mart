@@ -19,7 +19,7 @@ const Register = (props) => {
     profilePic: "",
   });
 
-  console.log(user);
+
 
   const [showPassword, setPassword] = useState(false);
 
@@ -38,11 +38,10 @@ const Register = (props) => {
   }
 
   async function handleUpload(event) {
-    console.log(event.target.files[0]);
+  
 
     const data = await ImgtoBase64(event.target.files[0]);
 
-    console.log(data);
 
     setUser((prevValue) => {
       return {
@@ -72,7 +71,7 @@ const Register = (props) => {
           .json()
           .then((dataRes) => {
             if (dataRes == null) {
-              console.log("data not fetched");
+            
             }
                else {
                 toast(dataRes.message);

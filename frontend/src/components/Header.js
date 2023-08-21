@@ -25,7 +25,7 @@ const Header = (props) => {
     dispatch(logoutRedux());
     localStorage.removeItem('token');
     axios.get(process.env.REACT_APP_SERVER_DOMAIN + "/logout",{withCredentials:true}).then(()=>{
-      console.log("Logout Succesfull");
+     
     }).catch((err)=>{
       console.log(err);
     })
@@ -41,10 +41,7 @@ function handleCart(){
 
 
   const userData = useSelector((state) => state.user);
-  console.log("====================================");
-  console.log(userData, "Login data");
-  console.log("====================================");
-  console.log(process.env.REACT_APP_ADMIN_EMAIL, "admin email");
+
 
   return (
     <>
