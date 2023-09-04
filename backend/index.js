@@ -115,7 +115,7 @@ passport.use(
     
     },
     function (accessToken, refreshToken, profile, cb) {
-      console.log(profile);
+    
 
        User.findOrCreate(
         {
@@ -199,11 +199,11 @@ app.get(
 
 app.get("/auth/user", (req, res) => {  
   if (req.user) {
-    console.log(req.user);
+  
     res.send({ message: "Succefully logged in", result: req.user });
   }
    else {
-    console.log("no user found");
+ 
   }
 });
 app.get("/logout", function (req, res) {
@@ -221,14 +221,14 @@ app.get("/category", (req, res) => {
       res.send({ categoryResult: data });
     })
     .catch((err) => {
-      console.log("====================================");
+    
       console.log(err);
-      console.log("====================================");
+ 
     });
 });
 
 app.post("/register", (req, res) => {
-  console.log(req.body);
+
   const { email } = req.body; //extract email from recieved data from frontend
   User.findOne({ username: email }).then((data) => {
     if (data == null) {
@@ -258,7 +258,7 @@ app.post("/register", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  console.log(req.headers.xtoken, "session user");
+
   const token = req.headers.xtoken;
   if (token) {
     const decoded = jwt.verify(token, process.env.COOKIESECRET);
@@ -272,7 +272,6 @@ app.post("/login", (req, res, next) => {
     username: req.body.username,
     password: req.body.password,
   });
-  console.log(req.body);
   User.findOne({ username: user.username }).then((data) => {
     if (!data) {
       res.send({ message: "User not registered" });
@@ -288,7 +287,7 @@ app.post("/login", (req, res, next) => {
           };
           const token = jwt.sign(dataSend, "my secrent key");
           //   req.session.user=dataSend;
-          console.log(token, "session user from post");
+       
           res.send({
             message: "Logged in succesfully",
             alert: true,
@@ -303,10 +302,10 @@ app.post("/login", (req, res, next) => {
 });
 
 app.post("/newProduct",upload.single("image"), (req, res) => {
-    console.log(req.body, " Product data from frontend");
+   
   const { title } = req.body;
 const {filename}=req.file;
-console.log(req.file);
+
   
   Product.findOne({ title: title })
     .then((data) => {
