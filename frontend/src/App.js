@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigate,
 } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -13,7 +12,7 @@ import Register from "./components/Register";
 import toast, { Toaster } from "react-hot-toast";
 import NewProduct from "./components/NewProduct";
 
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import {
   AddcartRedux,
@@ -33,8 +32,8 @@ import Success from "./components/Success";
 import Cancel from "./components/Cancel";
 import { loginRedux } from "./features/user/userSlice";
 import { decodeToken } from "react-jwt";
-const LazyProductdetail=React.lazy(()=>import ("./components/Productdetail"))
-const LazyProductpage=React.lazy(()=>import ("./components/Productpage"))
+const LazyProductdetail=React.lazy(()=>import ("./components/Productdetail"));
+const LazyProductpage=React.lazy(()=>import ("./components/Productpage"));
 const LazyHome=React.lazy(()=>import ("./components/Home"));
 function App() {
   const dispatch = useDispatch();

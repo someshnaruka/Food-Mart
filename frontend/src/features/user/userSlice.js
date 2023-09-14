@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { isExpired, decodeToken } from "react-jwt";
 const initialState = {
     _id:"",
     firstName: "",
