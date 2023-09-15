@@ -20,7 +20,7 @@ const Searchpage=(props)=>{
         const filterdata=cartItemNumber.filter((item)=>{
         
             return ( 
-                item.title.toLowerCase().includes(searchText.toLowerCase()) || item.category.toLowerCase().includes(searchText.toLowerCase())
+                item.title.toLowerCase().includes(searchText.toLowerCase()) || item.subcategory.toLowerCase().includes(searchText.toLowerCase())
             )
         });
 

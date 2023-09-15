@@ -20,7 +20,7 @@ const Register = (props) => {
   });
 
 
-
+const [show,setShow]=useState(false);
   const [showPassword, setPassword] = useState(false);
 
   function passwordVisible() {
@@ -53,6 +53,7 @@ const Register = (props) => {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setShow(true);
     const { firstName, email, password, confirmPassword ,profilePic } = user;
     if (firstName && email && password && confirmPassword && profilePic) {
       if (password === confirmPassword) {
@@ -76,6 +77,7 @@ const Register = (props) => {
                else {
                 toast(dataRes.message);
                 if (dataRes.alert) {
+                  setShow(false);
                   navigate("/login");
                 }
                 
@@ -187,9 +189,14 @@ const Register = (props) => {
             className="text-lg w-full md:text-xl mb-4 border-2 border-white rounded-lg p-2 bg-hero_Blue"
           ></input>
           </div>
-          <button className="login-btn border border-2 border-white hover:bg-hero_green flex justify-center p-2 rounded-lg w-full text-xl md:text-2xl bg-hero_brown mb-4 shadow-md">
+          {
+            show ?   <button className="login-btn border border-2 border-white hover:bg-hero_green flex justify-center p-2 rounded-lg w-full text-xl md:text-2xl bg-hero_brown mb-4 shadow-md" disabled>
+            Signing Up...
+          </button> :    <button className="login-btn border border-2 border-white hover:bg-hero_green flex justify-center p-2 rounded-lg w-full text-xl md:text-2xl bg-hero_brown mb-4 shadow-md">
             Sign Up
           </button>
+          }
+      
           <p className="new-user text-lg md:text-xl text-center w-full mb-4">
             Alredy Registered?{" "}
             <a

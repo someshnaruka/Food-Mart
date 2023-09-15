@@ -22,7 +22,7 @@ const app = express();
 app.use(
   cors({
     origin: process.env.FRONTEND,
-    methods: ["Get", "Post", "Delete"],
+    methods: "*",
     credentials: true,
   })
 );
@@ -88,6 +88,7 @@ const productsSchema = new mongoose.Schema({
   quantity: String,
   description: String,
   rating: String,
+  subcategory:String,
 });
 
 const User = mongoose.model("User", usersSchema);
@@ -301,10 +302,11 @@ app.post("/login", (req, res, next) => {
   });
 });
 
-app.post("/newProduct",upload.single("image"), (req, res) => {
+app.post("/newProduct", (req, res) => {
+  // upload.single("image")  //  middleware to store images in server side 
    
   const { title } = req.body;
-const {filename}=req.file;
+// const {filename}=req.file;
 
   
   Product.findOne({ title: title })
@@ -319,11 +321,12 @@ const {filename}=req.file;
         const productData={
           title: req.body.title,
           category: req.body.category,
-          image: filename,
+          image: req.body.image,
           price: req.body.price,
           quantity:req.body.quantity,
           description: req.body.description,
           rating: req.body.rating,
+          subcategory:req.body.subcategory,
         }
         const newProduct = new Product(productData);
         newProduct.save();

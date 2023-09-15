@@ -61,7 +61,7 @@ const Productcard = (props) => {
               className="bg-slate-100 h-40 w-full border-1 rounded-md p-1 border-solid flex justify-center "
               onClick={handleclick}
             >
-              <img src={`${process.env.REACT_APP_SERVER_DOMAIN}/uploads/${props.image}`} className="bg-cover bg-center  "></img>
+              <img src={props.image} className="bg-cover bg-center  "></img>
             </div>
             <p className="mx-2 my-1 text-xl md:text-2xl text-orange-600 whitespace-nowrap">{props.title}</p>
             <div className="flex justify-start gap-2 w-full items-start mx-2">

@@ -15,7 +15,7 @@ const Login = (props) => {
  
   
   const dispatch=useDispatch();
-
+const [show,setShow]=useState(false);
   const [user, setuser] = useState({
   username: "",
     password: "",
@@ -36,6 +36,7 @@ const Login = (props) => {
   }
   async function handleSubmit(event) {
     event.preventDefault();
+    setShow(true);
     const { username, password } = user;
 
     if (username && password) {
@@ -59,9 +60,11 @@ const Login = (props) => {
           const userDetail=decodeToken(datares.result);
       
           dispatch(loginRedux(userDetail))
-          setTimeout(() => {
-            navigate("/");
-          }, 1000);
+          setShow(false)
+          // setTimeout(() => {
+            
+          // }, 1000);
+          navigate("/");
         }
        
 
@@ -98,10 +101,14 @@ const Login = (props) => {
             onChange={handleChange}
             className="text-lg w-full md:text-xl mb-4 border-2 border-white rounded-lg p-2 bg-hero_Blue"
           ></input>
-
-          <button className="login-btn border-2 border-white hover:bg-hero_green flex justify-center p-2 rounded-lg w-full text-xl md:text-2xl bg-hero_brown mb-4 shadow-md">
+{
+  show ? <button className="login-btn border-2 border-white hover:bg-hero_green flex justify-center p-2 rounded-lg w-full text-xl md:text-2xl bg-hero_brown mb-4 shadow-md" disabled>
+            Loging In...
+          </button> :<button className="login-btn border-2 border-white hover:bg-hero_green flex justify-center p-2 rounded-lg w-full text-xl md:text-2xl bg-hero_brown mb-4 shadow-md">
             Log In
           </button>
+}
+          
           <p className="new-user text-lg md:text-xl text-center w-full mb-4">
             New User?{" "}
             <span

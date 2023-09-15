@@ -85,7 +85,7 @@ const Productdetail = (props) => {
             <div className="md:flex-row flex-col flex w-full max-w-4xl m-auto bg-hero_brown shadow-lg drop-shadow-md">
               <div className="bg-hero_green max-w-lg shadow overflow-hidden text-center md:flex items-center">
                 <img
-                  src={`${process.env.REACT_APP_SERVER_DOMAIN}/uploads/${filterdata[0].image}`}
+                  src={filterdata[0].image}
                   className="min-h-40 w-full h-80 hover:scale-105 transition-all m-auto "
                 ></img>
               </div>

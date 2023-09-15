@@ -34,7 +34,7 @@ function handleimgClick()
     <>
       <div className=" bg-white w-full m-2 mb-3 border-1 border-solid border-black rounded-sm flex flex-col md:flex-row shadow-lg">
         <div className=" overflow-hidden m-auto cursor-pointer" onClick={handleimgClick}>
-          <img src={`${process.env.REACT_APP_SERVER_DOMAIN}/uploads/${props.image}`}className=" w-24 h-24 object-cover "></img>
+          <img src={props.image}className=" w-24 h-24 object-cover "></img>
         </div>
         <div className=" bg-hero_brown md:w-3/4 h-full align-top flex flex-col items-start gap-3">
           <div className="flex justify-between w-full">

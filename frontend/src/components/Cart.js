@@ -14,7 +14,7 @@ const Cart = (props) => {
   const productData = useSelector((state) => state.product.cartList);
   const user = useSelector((state) => state.user);
  
-
+const [show,setShow]=useState(false);
   const totalSum = productData.reduce(
     (acc, curr) => acc + parseInt(curr.total),
     0
@@ -32,6 +32,7 @@ const Cart = (props) => {
   }
 
  async function handlePayment() {
+  setShow(true);
   if(user.email)
   {
 
@@ -49,6 +50,7 @@ const Cart = (props) => {
          
           if (response.data.url) {
             toast("Redirecting to Payment Gateway")
+            setShow(false);
             window.location.href = response.data.url;
           }
         })
@@ -109,9 +111,14 @@ const Cart = (props) => {
                   className="flex justify-center items-baseline  border-3 border-black rounded-md border-solid cursor-pointer  bg-yellow-400 hover:bg-yellow-200"
                   onClick={handlePayment}
                 >
-                  <p className="text-lg text-center p-2 md:text-2xl w-full">
+                {
+                  show ? <button className="text-lg text-center p-2 md:text-2xl w-full" disabled>
+                    Checking Out...
+                  </button> :<button className="text-lg text-center p-2 md:text-2xl w-full">
                     Check Out
-                  </p>
+                  </button>
+                }
+                  
                 </div>
               </div>
             </div>

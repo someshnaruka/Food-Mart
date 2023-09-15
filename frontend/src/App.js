@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { ChakraProvider } from '@chakra-ui/react'
 import {
   BrowserRouter as Router,
   Routes,
@@ -97,6 +97,7 @@ function App() {
   }, []);
   return (
     <div className="main overflow-x-hidden">
+    <ChakraProvider>
       <Toaster></Toaster>
       <Router>
         <Header></Header>
@@ -130,6 +131,7 @@ function App() {
         </Routes>
         <Footer></Footer>
       </Router>
+      </ChakraProvider>
     </div>
   );
 }

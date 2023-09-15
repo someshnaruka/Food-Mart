@@ -59,7 +59,7 @@ const Productcard = (props) => {
               onClick={handleclick}
             >
               <img
-                src={`${process.env.REACT_APP_SERVER_DOMAIN}/uploads/${props.image}`}
+                src={props.image}
                 className="bg-cover bg-center h-full"
               ></img>
             </div>
