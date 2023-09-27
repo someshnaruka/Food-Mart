@@ -47,7 +47,7 @@ const [isLoading,setLoading]=useState(true);
    slideProduct.current.scrollLeft += 300;
   }
   function prevSlide(){
-    slideProduct.current.scrollLeft -= 300;
+    slideProduct.current.scrollLeft -=300;
   }
   function handleProduct(product) {
     dispatch(AddcartRedux(product));
@@ -72,7 +72,7 @@ const [isLoading,setLoading]=useState(true);
 <div className="my-10  mx-6">
      <h1 className="text-md md:text-2xl">Shop By Category</h1>
      <hr className="border-1 border-black border-solid"></hr>
-     <div className="category-box flex items-center justify-between my-5 w-full flex-wrap">
+     <div className="category-box flex items-center justify-evenly my-5 md:gap-8 gap-4 w-full flex-wrap">
        {categoryData.map((post) => {
          return (
            <Categorycard
@@ -88,10 +88,10 @@ const [isLoading,setLoading]=useState(true);
 
   
 
-   <div className="my-5 w-[95%] mx-6 ">
+   <div className="my-5 w-full mx-6 flex items-start justify-start flex-col ">
      <h1 className="text-md md:text-2xl">Products</h1>
-     <hr className="border-1 border-black border-solid"></hr>
-     <div className="my-5 flex justify-end gap-2 items-center">
+     <hr className="border-1 w-full border-black border-solid"></hr>
+     <div className=" w-[95%]    flex justify-end p-4 gap-2 items-center">
        <button onClick={prevSlide}>
          <NavigateBeforeIcon
            sx={{ fontSize: 30 }}
@@ -106,7 +106,7 @@ const [isLoading,setLoading]=useState(true);
        </button>
      </div>
 
-     <div className="flex md:h-full h-80 gap-5 my-5 w-full overflow-scroll  no-scrollbar scroll-smooth transition-all" ref={slideProduct}>
+     <div className="flex md:h-full gap-5 my-5 w-full overflow-scroll  no-scrollbar scroll-smooth transition-all" ref={slideProduct}>
        {productData &&
           productData.map((post, index) => {
              return (

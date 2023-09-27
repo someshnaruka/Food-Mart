@@ -54,7 +54,7 @@ const Productcard = (props) => {
 
   return (
     <>
-      <div className="product-card  min-w-[300px] max-w-[400px] h-full bg-white flex flex-col border-1 rounded-xl border-solid cursor-pointer  hover:scale-105 transition-all overflow-hidden shadow-xl justify-evenly items-start p-2">
+      <div className="product-card  min-w-[300px] max-w-[400px] h-full bg-white flex flex-col border-1 rounded-xl border-solid cursor-pointer  hover:scale-105 transition-all overflow-hidden shadow-xl justify-evenly items-start p-2 md:m-4 mb-2">
         {props.title ? (
           <>
             <div
