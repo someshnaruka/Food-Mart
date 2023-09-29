@@ -4,12 +4,14 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { toast } from "react-hot-toast";
 import { AddcartRedux } from "../features/productSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Productcard = (props) => {
   const dispatch = useDispatch();
-
+const data=useSelector((state)=>state.product.cartList);
+const filterdata=data.filter((item)=>item.id===props.id);
   const [unitCounter, setunitCounter] = useState(0);
+
 
   function increaseUnit() {
     if (unitCounter < 10) {
@@ -32,9 +34,14 @@ const Productcard = (props) => {
     props.onclick(productUnit);
   }
   function handleCart() {
+    let count=0;
     if (unitCounter === 0) {
-      toast("Minimun Quantity 1");
-    } else {
+      setunitCounter(unitCounter+1);
+      count=unitCounter+1;
+    } 
+    else{
+      count=unitCounter;
+    }
       const productdetail = {
         id: props.id,
         title: props.title,
@@ -42,11 +49,11 @@ const Productcard = (props) => {
         rating: props.rating,
         price: props.price,
         quantity: props.quantity,
-        unit: unitCounter,
+        unit: count,
         total: "0",
       };
       props.oncart(productdetail);
-    }
+    
   }
 
   return (
@@ -94,7 +101,7 @@ const Productcard = (props) => {
                 <input
                   type="text"
                   name="unit"
-                  value={unitCounter}
+                  value={filterdata[0]?.unit ? filterdata[0].unit:unitCounter}
                   className="w-5 mx-2"
                   readOnly
                 ></input>

@@ -8,8 +8,11 @@ import { useSelector } from "react-redux";
 import Cardslider from "./Cardslider";
 import smoothi from "../Assests/foodmart/Image 1.svg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useNavigate } from "react-router-dom";
 
 const OwlCarouselSection = (props) => {
+
+  const navigate=useNavigate();
   const options = {
     loop: true,
     center: true,
@@ -21,6 +24,10 @@ const OwlCarouselSection = (props) => {
     smartSpeed: 450,
     nav: true,
   };
+
+  function handleclickCategory(title) {
+    navigate("/productpage/" + title);
+  }
 
   return (
     <>
@@ -38,7 +45,9 @@ const OwlCarouselSection = (props) => {
                 <p className="text-sm md:text-2xl mb-2">
                   Best selling summer juice with natural extracts.
                 </p>
-                <button className="heroSection_shopButton text-md md:text-lg p-2  m-auto border border-2  w-1/2 border-black rounded-lg hover:bg-black hover:text-white">
+                <button className="heroSection_shopButton text-md md:text-lg p-2  m-auto border border-2  w-1/2 border-black rounded-lg hover:bg-black hover:text-white" onClick={()=>{
+                  handleclickCategory("Beverages")
+                }}>
                   Shop Now
                 </button>
               </div>
@@ -53,7 +62,9 @@ const OwlCarouselSection = (props) => {
                 <h1 className="text-2xl text-left mb-2 font-semibold">
                   Fruits & Vegetables
                 </h1>
-                <p className="text-2xl cursor-pointer hover:text-yellow-500">
+                <p className="text-2xl cursor-pointer hover:text-yellow-500" onClick={()=>{
+                  handleclickCategory("Fruits%20&%20Veges")
+                }}>
                   Shop The Category{" "}
                   <ArrowForwardIcon sx={{ fontSize: 20 }}></ArrowForwardIcon>{" "}
                 </p>
@@ -67,7 +78,9 @@ const OwlCarouselSection = (props) => {
                 <h1 className="text-2xl mb-2 font-semibold">
                   Baked Products
                 </h1>
-                <p className="text-xl cursor-pointer hover:text-yellow-500">
+                <p className="text-xl cursor-pointer hover:text-yellow-500" onClick={()=>{
+                  handleclickCategory("Breads%20&%20Sweets")
+                }}>
                   Shop The Category{" "}
                   <ArrowForwardIcon sx={{ fontSize: 20 }}></ArrowForwardIcon>{" "}
                 </p>

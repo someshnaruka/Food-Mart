@@ -21,6 +21,7 @@ state.productCheck=action.payload
       state.productList = [...action.payload];
     },
     AddcartRedux: (state, action) => {
+    
       const check = state.cartList.some(
         (item) => item.id === action.payload.id
       );

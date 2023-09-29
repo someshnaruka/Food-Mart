@@ -24,6 +24,9 @@ const Hero_Section = () => {
     const { name, value } = event.target;
     setSearchtext(value);
   }
+  function handleclickCategory(title) {
+    navigate("/productpage/" + title);
+  }
 
   const [searchText, setSearchtext] = useState("");
 
@@ -77,7 +80,9 @@ const Hero_Section = () => {
               <p className="text-sm md:text-2xl mb-2">
                 Best selling summer juice with natural extracts.
               </p>
-              <button className="heroSection_shopButton text-md md:text-lg p-2 md:p-4 border border-2  w-full md:w-1/2 border-black rounded-lg hover:bg-black hover:text-white">
+              <button className="heroSection_shopButton text-md md:text-lg p-2 md:p-4 border border-2  w-full md:w-1/2 border-black rounded-lg hover:bg-black hover:text-white" onClick={()=>{
+                handleclickCategory("Beverages")
+              }}>
                 Shop Now
               </button>
             </div>
@@ -91,7 +96,9 @@ const Hero_Section = () => {
                 <h1 className="text-md md:text-xl mb-2 font-semibold">
                   Fruits & Vegetables
                 </h1>
-                <p className="text-sm md:text-md cursor-pointer hover:text-yellow-500">
+                <p className="text-sm md:text-md cursor-pointer hover:text-yellow-500" onClick={()=>{
+                  handleclickCategory("Fruits%20&%20Veges")
+                }}>
                   Shop The Category{" "}
                   <ArrowForwardIcon sx={{ fontSize: 15 }}></ArrowForwardIcon>{" "}
                 </p>
@@ -102,7 +109,9 @@ const Hero_Section = () => {
                 <h1 className="text-md md:text-xl mb-2 font-semibold">
                   Baked Products
                 </h1>
-                <p className="text-sm md:text-md cursor-pointer hover:text-yellow-500">
+                <p className="text-sm md:text-md cursor-pointer hover:text-yellow-500" onClick={()=>{
+                  handleclickCategory("Breads%20&%20Sweets")
+                }}>
                   Shop The Category{" "}
                   <ArrowForwardIcon sx={{ fontSize: 15 }}></ArrowForwardIcon>{" "}
                 </p>
